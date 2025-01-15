@@ -17,3 +17,15 @@ class GroupMessage(db.Model):
 
     def __repr__(self):
         return f"<GroupMessage {self.id} in group {self.group.group_name} by {self.sender.username}>"
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "group_id": self.group_id,
+            "sender_id": self.sender_id,
+            "content": self.content,
+            "media": self.media,
+            "message_type": self.message_type,
+            "sent_at": self.sent_at,
+            "is_read": self.is_read
+        }

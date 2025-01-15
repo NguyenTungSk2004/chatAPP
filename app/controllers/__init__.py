@@ -1,2 +1,5 @@
 from .auth_controller import auth_blueprint
 from .message_controller import message_blueprint
+from .groupChat_controller import group_chat_blueprint
+from .groupMessage_controller import group_message_blueprint
+from .groupMember_controller import group_member_blueprint

@@ -15,3 +15,15 @@ class Message(db.Model):
     
     sender = db.relationship('User', foreign_keys=[sender_id], backref='sent_messages')
     receiver = db.relationship('User', foreign_keys=[receiver_id], backref='received_messages')
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "sender_id": self.sender_id,
+            "receiver_id": self.receiver_id,
+            "content": self.content,
+            "media": self.media,
+            "message_type": self.message_type,
+            "sent_at": self.sent_at,
+            "is_read": self.is_read
+        }

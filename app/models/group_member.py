@@ -9,7 +9,8 @@ class GroupMember(db.Model):
     joined_at = db.Column(db.DateTime, default=db.func.now())
 
     group = db.relationship('GroupChat', backref=db.backref('members', lazy=True))
-    user = db.relationship('User', backref=db.backref('groups', lazy=True))
+    member = db.relationship('User', backref=db.backref('groups', lazy=True))
 
     def __repr__(self):
         return f"<GroupMember user {self.user.username} in group {self.group.group_name}>"
+    
